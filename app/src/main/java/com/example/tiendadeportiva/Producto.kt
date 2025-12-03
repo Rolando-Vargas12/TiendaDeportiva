@@ -2,13 +2,14 @@ package com.example.tiendadeportiva
 
 import kotlinx.serialization.Serializable
 
-// --- MODELO DE PRODUCTO ---
+// --- MODELO DE PRODUCTO (Lectura) ---
 @Serializable
 data class Producto(
     val id: Int,
     val nombre: String,
     val precio: Double,
-    val img: String
+    val img: String,
+    val descripcion: String? = null
 )
 
 @Serializable
@@ -16,8 +17,23 @@ data class ProductoApiResponse(
     val data: List<Producto>
 )
 
+@Serializable
+data class ProductoSingleResponse(
+    val data: Producto
+)
+
+// --- MODELO PARA CREAR PRODUCTO (Escritura - Admin) ---
+@Serializable
+data class ProductoRequest(
+    val codigo: String,
+    val nombre: String,
+    val precio: Double,
+    val cantidad: Int,
+    val img: String,
+    val descripcion: String = "Producto creado desde la App"
+)
+
 // --- MODELO DE USUARIO (PARA LA APP) ---
-// ¡Esta es la clase que faltaba!
 data class Usuario(
     val nombre: String,
     val correo: String,
@@ -57,19 +73,4 @@ data class VentaRequest(
 @Serializable
 data class VentaResponse(
     val id: String
-)
-
-@Serializable
-data class ProductoSingleResponse(
-    val data: Producto
-)
-
-@Serializable
-data class ProductoRequest(
-    val codigo: String,
-    val nombre: String,
-    val precio: Double,
-    val cantidad: Int,
-    val img: String,
-    val descripcion: String = "Producto creado desde la App"
 )

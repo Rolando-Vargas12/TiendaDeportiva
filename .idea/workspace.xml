@@ -9,7 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="modificacion para que funcione la app" />
+    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="modificacion para que funcione la app">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/prod_balon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/prod_botella.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/prod_guantes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/prod_raqueta.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/DetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/DetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProductCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProductCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,12 +66,12 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="fce5509a-655f-4bdb-9837-8ad876be9807" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Rolando-Vargas12/TiendaDeportiva.git",
-    "accountId": "fce5509a-655f-4bdb-9837-8ad876be9807"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Rolando-Vargas12/TiendaDeportiva.git&quot;,
+    &quot;accountId&quot;: &quot;fce5509a-655f-4bdb-9837-8ad876be9807&quot;
   }
-}]]></component>
+}</component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\marti\.gradle\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="D:\Program Files\JetBrains\IntelliJ IDEA 2025.2.5\jbr" gradleVersion="8.13" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -86,6 +95,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Android",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/marti/IdeaProjects/TiendaDeportiva/app/src/main/res/drawable",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,6 +105,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\IdeaProjects\TiendaDeportiva\app\src\main\res\drawable" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="TiendaDeportiva.app" />
@@ -156,7 +171,8 @@
       <option name="presentableId" value="Default" />
       <updated>1764644865579</updated>
       <workItem from="1764644867368" duration="787000" />
-      <workItem from="1764711447317" duration="11652000" />
+      <workItem from="1764711447317" duration="11667000" />
+      <workItem from="1764780234340" duration="5323000" />
     </task>
     <task id="LOCAL-00001" summary="arreglo de la app">
       <option name="closed" value="true" />
@@ -198,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764728320784</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="modificacion para que funcione la app">
+      <option name="closed" value="true" />
+      <created>1764728334637</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764728334637</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

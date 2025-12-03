@@ -19,7 +19,7 @@ object CartManager {
         productosEnCarrito.clear()
     }
 
-    fun obtenerTotal(): Int {
+    fun obtenerTotal(): Double {
         return productosEnCarrito.sumOf { it.precio }
     }
 }

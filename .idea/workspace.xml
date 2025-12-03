@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="arreglo de la app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/AboutScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/AboutScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ApiClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProductCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProductCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +81,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Android",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -159,11 +154,32 @@
       <option name="presentableId" value="Default" />
       <updated>1764644865579</updated>
       <workItem from="1764644867368" duration="787000" />
-      <workItem from="1764711447317" duration="4893000" />
+      <workItem from="1764711447317" duration="6996000" />
     </task>
+    <task id="LOCAL-00001" summary="arreglo de la app">
+      <option name="closed" value="true" />
+      <created>1764720317407</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764720317407</updated>
+    </task>
+    <task id="LOCAL-00002" summary="arreglo de la app">
+      <option name="closed" value="true" />
+      <created>1764720341681</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764720341681</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="arreglo de la app" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglo de la app" />
   </component>
 </project>

@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ProfileScreen(onLogout: () -> Unit) {
+fun ProfileScreen(onLogout: () -> Unit, onNavigateToAdmin: () -> Unit) {
     val usuario = UserManager.usuarioActual.value
 
     Column(
@@ -23,7 +23,7 @@ fun ProfileScreen(onLogout: () -> Unit) {
         Spacer(modifier = Modifier.height(32.dp))
 
         if (usuario != null) {
-            // Tarjeta con info del usuario
+
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
@@ -36,10 +36,20 @@ fun ProfileScreen(onLogout: () -> Unit) {
                     InfoRow(label = "Tipo:", value = usuario.tipo)
                 }
             }
+            if (usuario.tipo == "Administrador") {
+                Spacer(modifier = Modifier.height(24.dp))
+                Button(
+                    onClick = onNavigateToAdmin,
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("🛠️ Panel de Administración")
+                }
+            }
 
             Spacer(modifier = Modifier.height(48.dp))
 
-            // Botón Cerrar Sesión (Rojo)
+
             Button(
                 onClick = {
                     UserManager.logout()

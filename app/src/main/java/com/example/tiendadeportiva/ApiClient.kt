@@ -59,6 +59,23 @@ object ApiClient {
             emptyList()
         }
     }
+    suspend fun getProductoPorId(id: Int): Producto? {
+        return try {
+            val response = client.get("$BASE_URL_PRODUCTOS$PRODUCTOS_ENDPOINT/$id")
+
+            if (response.status == HttpStatusCode.OK) {
+                response.body<ProductoSingleResponse>().data
+            } else {
+                Log.e("API_CLIENT", "Error al buscar producto $id: ${response.status}")
+                null
+            }
+        } catch (e: Exception) {
+            Log.e("API_CLIENT", "Error de conexión al buscar detalle: ${e.message}")
+            null
+        }
+    }
+
+    // ... el resto de funciones (ventas, login, etc.) ...
 
     suspend fun createVentaService(cliente: String, total: Double): Result<VentaResponse> {
         return withContext(Dispatchers.IO) {
@@ -114,6 +131,25 @@ object ApiClient {
                 }
             } catch (e: Exception) {
                 Result.failure(Exception("Error Registro: ${e.message}"))
+            }
+        }
+    }
+    suspend fun crearProducto(producto: ProductoRequest): Result<Unit> {
+        return withContext(Dispatchers.IO) {
+            try {
+                // Hacemos un POST a /api/productos
+                val response = client.post("$BASE_URL_PRODUCTOS$PRODUCTOS_ENDPOINT") {
+                    contentType(ContentType.Application.Json)
+                    setBody(producto)
+                }
+                if (response.status == HttpStatusCode.Created || response.status == HttpStatusCode.OK) {
+                    Result.success(Unit)
+                } else {
+                    val error = response.bodyAsText()
+                    Result.failure(Exception("Error al crear: $error"))
+                }
+            } catch (e: Exception) {
+                Result.failure(Exception("Error de conexión: ${e.message}"))
             }
         }
     }

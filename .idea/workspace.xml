@@ -9,11 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="arreglo de la app">
+    <list default="true" id="40c2b4b7-1101-40aa-9e7c-1b30fc16ce6d" name="Changes" comment="arreglos de la app">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/AdminProductScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ApiClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/CartManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/DataSource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/DetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/DetailScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Producto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProfileScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/ProfileScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/tiendadeportiva/Screen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +47,13 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1764644865579</updated>
       <workItem from="1764644867368" duration="787000" />
-      <workItem from="1764711447317" duration="6996000" />
+      <workItem from="1764711447317" duration="11458000" />
     </task>
     <task id="LOCAL-00001" summary="arreglo de la app">
       <option name="closed" value="true" />
@@ -172,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764720341681</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="arreglos de la app">
+      <option name="closed" value="true" />
+      <created>1764723694975</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764723694975</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +200,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arreglo de la app" />
-    <option name="LAST_COMMIT_MESSAGE" value="arreglo de la app" />
+    <MESSAGE value="arreglos de la app" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglos de la app" />
   </component>
 </project>

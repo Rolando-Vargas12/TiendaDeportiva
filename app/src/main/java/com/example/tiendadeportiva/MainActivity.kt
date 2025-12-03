@@ -78,14 +78,16 @@ fun AppNavigation() {
 
         composable(Screen.Perfil.route) {
             ProfileScreen(
-                onLogout = {
-                    navController.popBackStack(Screen.Home.route, inclusive = false)
-                }
+                onLogout = { navController.popBackStack(Screen.Home.route, inclusive = false) },
+                onNavigateToAdmin = { navController.navigate(Screen.AdminPanel.route) } // <--- NUEVO
             )
         }
 
         composable(Screen.Nosotros.route) {
             AboutScreen(onBack = { navController.popBackStack() })
+        }
+        composable(Screen.AdminPanel.route) {
+            AdminProductScreen(onBack = { navController.popBackStack() })
         }
     }
 }
@@ -98,9 +100,14 @@ fun HomeScreen(
     onUserClick: () -> Unit,
     onInfoClick: () -> Unit
 ) {
+
     var productos by remember { mutableStateOf(emptyList<Producto>()) }
+
     var isLoading by remember { mutableStateOf(true) }
+
     val usuario = UserManager.usuarioActual.value
+    val scope = rememberCoroutineScope() // Para el botón de reintentar si lo agregaste
+
 
     LaunchedEffect(Unit) {
         isLoading = true
@@ -130,12 +137,13 @@ fun HomeScreen(
                 Text("Cargando productos...", modifier = Modifier.padding(top = 80.dp))
             }
         } else if (productos.isEmpty()) {
+            // Aquí puedes poner el diseño de error con botón "Reintentar" si lo deseas
             Box(modifier = Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
                 Text(
-                    "No se encontraron productos o el servidor está apagado (Revisa el Logcat).",
+                    "No se encontraron productos o el servidor está apagado.",
                     color = Color.Red,
                     style = MaterialTheme.typography.titleMedium,
-                    textAlign = Alignment.Center.toString().let { androidx.compose.ui.text.style.TextAlign.Center }
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
                 )
             }
         } else {

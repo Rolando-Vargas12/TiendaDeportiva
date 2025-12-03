@@ -58,3 +58,18 @@ data class VentaRequest(
 data class VentaResponse(
     val id: String
 )
+
+@Serializable
+data class ProductoSingleResponse(
+    val data: Producto
+)
+
+@Serializable
+data class ProductoRequest(
+    val codigo: String,
+    val nombre: String,
+    val precio: Double,
+    val cantidad: Int,
+    val img: String,
+    val descripcion: String = "Producto creado desde la App"
+)

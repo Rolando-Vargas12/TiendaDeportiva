@@ -18,23 +18,23 @@ import kotlinx.coroutines.launch
 @Composable
 fun CartScreen(onBack: () -> Unit, onPaySuccess: () -> Unit) {
     val carrito = CartManager.productosEnCarrito
-    val usuario = UserManager.usuarioActual.value // Para obtener el nombre del cliente
+    val usuario = UserManager.usuarioActual.value
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
-    val totalMonto = CartManager.obtenerTotal().toDouble() // Total para enviar al API (Double)
+    val totalMonto = CartManager.obtenerTotal().toDouble()
 
-    val handlePagar = {
+    // CORRECCIÓN: Definimos explícitamente que esto devuelve Unit (vacío)
+    val handlePagar: () -> Unit = {
         if (carrito.isEmpty()) {
             Toast.makeText(context, "El carrito está vacío", Toast.LENGTH_SHORT).show()
         } else if (usuario == null) {
             Toast.makeText(context, "Inicia sesión para pagar", Toast.LENGTH_LONG).show()
-            // Aquí se debería navegar a la pantalla de login (Lógica de tu React)
         } else {
-            scope.launch {
-                // 1. Prepara los datos de la venta
-                val clienteNombre = usuario.nombre
+            // Guardamos el nombre en una variable segura antes de lanzar la corrutina
+            val clienteNombre = usuario.nombre
 
-                // 2. Llama al microservicio de Ventas (8082)
+            scope.launch {
+                // Ahora usamos la variable segura
                 val result = ApiClient.createVentaService(clienteNombre, totalMonto)
 
                 if (result.isSuccess) {
@@ -46,6 +46,8 @@ fun CartScreen(onBack: () -> Unit, onPaySuccess: () -> Unit) {
                     Toast.makeText(context, "❌ Error de pago: ${result.exceptionOrNull()?.message}", Toast.LENGTH_LONG).show()
                 }
             }
+            // Este Unit final asegura que la función no devuelva el Job del launch
+            Unit
         }
     }
 
@@ -87,7 +89,6 @@ fun CartScreen(onBack: () -> Unit, onPaySuccess: () -> Unit) {
             }
             Spacer(modifier = Modifier.height(16.dp))
 
-            // --- BOTÓN PAGAR CON LÓGICA DE API ---
             Button(onClick = handlePagar, modifier = Modifier.fillMaxWidth()) {
                 Text("Pagar Ahora")
             }

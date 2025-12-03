@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.sp
 // --- IMPORTACIONES NUEVAS PARA EL ICONO ---
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
-// ------------------------------------------
 
 @Composable
 fun AboutScreen(onBack: () -> Unit) {

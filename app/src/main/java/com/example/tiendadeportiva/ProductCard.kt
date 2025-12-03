@@ -3,13 +3,13 @@ package com.example.tiendadeportiva
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment // <-- Importación necesaria para Box
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage // <-- Importación clave
+import coil.compose.SubcomposeAsyncImage // <--- ¡OJO! Cambiamos a SubcomposeAsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,12 +21,14 @@ fun ProductCard(producto: Producto, onItemClick: () -> Unit) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            AsyncImage(
+
+            // CORRECCIÓN: Usamos SubcomposeAsyncImage para soportar 'loading' y 'error' personalizados
+            SubcomposeAsyncImage(
                 model = producto.img,
                 contentDescription = producto.nombre,
                 modifier = Modifier.fillMaxWidth().height(150.dp),
                 contentScale = ContentScale.Crop,
-                // Usamos Box y CircularProgressIndicator
+                // Ahora sí podemos usar Composables aquí dentro
                 loading = {
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         CircularProgressIndicator(modifier = Modifier.padding(30.dp))
@@ -34,7 +36,7 @@ fun ProductCard(producto: Producto, onItemClick: () -> Unit) {
                 },
                 error = {
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text("🖼️ Error de Carga", modifier = Modifier.padding(16.dp))
+                        Text("🖼️ Error", modifier = Modifier.padding(16.dp))
                     }
                 }
             )
@@ -43,8 +45,10 @@ fun ProductCard(producto: Producto, onItemClick: () -> Unit) {
                 Text(text = producto.nombre, fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 Text(text = "$${producto.precio}", color = MaterialTheme.colorScheme.primary)
                 Spacer(modifier = Modifier.height(8.dp))
-                Button(onClick = { /* Lógica futura */ }, modifier = Modifier.fillMaxWidth()) {
-                    Text("Añadir al carrito")
+
+                // He vinculado el botón a la misma acción que la tarjeta para que sea útil
+                Button(onClick = onItemClick, modifier = Modifier.fillMaxWidth()) {
+                    Text("Ver Detalles")
                 }
             }
         }

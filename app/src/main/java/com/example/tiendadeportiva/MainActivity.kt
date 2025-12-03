@@ -23,7 +23,6 @@ import androidx.navigation.navArgument
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Asegúrate de que el tema de tu aplicación se aplica aquí si estás usando un tema personalizado
         setContent {
             AppNavigation()
         }
@@ -36,7 +35,6 @@ fun AppNavigation() {
 
     NavHost(navController = navController, startDestination = Screen.Home.route) {
 
-        // --- HOME ---
         composable(Screen.Home.route) {
             HomeScreen(
                 onProductClick = { id -> navController.navigate(Screen.Detalle.createRoute(id)) },
@@ -51,23 +49,19 @@ fun AppNavigation() {
             )
         }
 
-        // --- DETALLE ---
         composable(Screen.Detalle.route, arguments = listOf(navArgument("productoId") { type = NavType.IntType })) {
             val id = it.arguments?.getInt("productoId") ?: 0
             DetailScreen(productoId = id, onBack = { navController.popBackStack() })
         }
 
-        // --- CARRITO ---
         composable(Screen.Carrito.route) {
             CartScreen(onBack = { navController.popBackStack() }, onPaySuccess = { navController.navigate(Screen.Pagos.route) })
         }
 
-        // --- PAGOS ---
         composable(Screen.Pagos.route) {
             PaymentScreen(onHomeClick = { navController.popBackStack(Screen.Home.route, inclusive = false) })
         }
 
-        // --- LOGIN ---
         composable(Screen.Login.route) {
             LoginScreen(
                 onLoginSuccess = { navController.popBackStack(Screen.Home.route, false) },
@@ -75,7 +69,6 @@ fun AppNavigation() {
             )
         }
 
-        // --- REGISTRO ---
         composable(Screen.Registro.route) {
             RegisterScreen(
                 onRegistrationSuccess = { navController.popBackStack() },
@@ -83,7 +76,6 @@ fun AppNavigation() {
             )
         }
 
-        // --- PERFIL ---
         composable(Screen.Perfil.route) {
             ProfileScreen(
                 onLogout = {
@@ -92,7 +84,6 @@ fun AppNavigation() {
             )
         }
 
-        // --- NOSOTROS ---
         composable(Screen.Nosotros.route) {
             AboutScreen(onBack = { navController.popBackStack() })
         }
@@ -107,15 +98,13 @@ fun HomeScreen(
     onUserClick: () -> Unit,
     onInfoClick: () -> Unit
 ) {
-    // 1. Manejo de estado: Lista de productos y si está cargando
     var productos by remember { mutableStateOf(emptyList<Producto>()) }
     var isLoading by remember { mutableStateOf(true) }
     val usuario = UserManager.usuarioActual.value
 
-    // 2. Efecto de Carga (Simula el useEffect de React para llamadas a API)
     LaunchedEffect(Unit) {
         isLoading = true
-        productos = ApiClient.getProductos() // <--- ¡LLAMADA REAL A TU BACKEND!
+        productos = ApiClient.getProductos()
         isLoading = false
     }
 
@@ -135,7 +124,6 @@ fun HomeScreen(
             )
         }
     ) { padding ->
-        // 3. Mostrar estado de carga, error o la lista
         if (isLoading) {
             Box(modifier = Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
@@ -151,7 +139,6 @@ fun HomeScreen(
                 )
             }
         } else {
-            // Mostrar la lista con los productos de la API
             LazyColumn(modifier = Modifier.padding(padding)) {
                 items(productos) { producto ->
                     ProductCard(producto = producto, onItemClick = { onProductClick(producto.id) })

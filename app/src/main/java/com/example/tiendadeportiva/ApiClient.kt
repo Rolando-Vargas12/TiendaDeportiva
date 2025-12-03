@@ -15,14 +15,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 object ApiClient {
-    // ⚠️ IPs IMPORTANTES: Acceso a localhost/backend desde el emulador
     private const val BASE_URL_PRODUCTOS = "http://10.0.2.2:8081"
     private const val BASE_URL_USERS = "http://10.0.2.2:8080"
-    private const val BASE_URL_SALES = "http://10.0.2.2:8082" // Microservicio de Ventas
+    private const val BASE_URL_SALES = "http://10.0.2.2:8082"
 
-    private const val PRODUCTOS_ENDPOINT = "/api/api/productos"
+    private const val PRODUCTOS_ENDPOINT = "/api/api/productos" // Ajustado al context-path
     private const val USERS_ENDPOINT = "/api/users"
-    private const val SALES_ENDPOINT = "/api/ventas" // Endpoint de tu React
+    private const val SALES_ENDPOINT = "/api/api/ventas" // Ajustado al context-path
 
     val client = HttpClient(Android) {
         install(ContentNegotiation) {
@@ -33,21 +32,22 @@ object ApiClient {
         }
     }
 
-    // --- 1. SERVICIO DE PRODUCTOS (8081) ---
     suspend fun getProductos(): List<Producto> {
         return try {
+            // Concatenamos URL Base + Endpoint
             val response = client.get("$BASE_URL_PRODUCTOS$PRODUCTOS_ENDPOINT")
             if (response.status == HttpStatusCode.OK) {
+                // Mapeamos la respuesta usando la clase envoltorio que creamos en Producto.kt
                 response.body<ProductoApiResponse>().data
             } else {
                 emptyList()
             }
         } catch (e: Exception) {
+            e.printStackTrace()
             emptyList()
         }
     }
 
-    // --- 2. SERVICIO DE VENTAS (8082) ---
     suspend fun createVentaService(cliente: String, total: Double): Result<VentaResponse> {
         return withContext(Dispatchers.IO) {
             try {
@@ -60,7 +60,6 @@ object ApiClient {
                     val ventaData = response.body<VentaResponse>()
                     Result.success(ventaData)
                 } else {
-                    // Intenta leer el error del backend si falla
                     val errorBody = response.bodyAsText()
                     Result.failure(Exception("Error al procesar el pago: $errorBody"))
                 }
@@ -70,7 +69,6 @@ object ApiClient {
         }
     }
 
-    // --- 3. SERVICIO DE AUTENTICACIÓN (8080) ---
     suspend fun loginService(correo: String, pass: String): Result<UserResponse> {
         return withContext(Dispatchers.IO) {
             try {
@@ -82,10 +80,10 @@ object ApiClient {
                 if (response.status == HttpStatusCode.OK) {
                     Result.success(response.body<UserResponse>())
                 } else {
-                    Result.failure(Exception("Credenciales inválidas")) // Error de tu React
+                    Result.failure(Exception("Credenciales inválidas"))
                 }
             } catch (e: Exception) {
-                Result.failure(Exception("Error de conexión o servidor no disponible: ${e.message}"))
+                Result.failure(Exception("Error de conexión: ${e.message}"))
             }
         }
     }
@@ -98,10 +96,10 @@ object ApiClient {
                     contentType(ContentType.Application.Json)
                     setBody(requestBody)
                 }
-                if (response.status == HttpStatusCode.OK) {
+                if (response.status == HttpStatusCode.Created || response.status == HttpStatusCode.OK) {
                     Result.success(Unit)
                 } else {
-                    Result.failure(Exception("Error en el registro")) // Error de tu React
+                    Result.failure(Exception("Error en el registro"))
                 }
             } catch (e: Exception) {
                 Result.failure(Exception("Error de conexión al registrarse."))
